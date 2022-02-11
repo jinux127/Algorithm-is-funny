@@ -90,7 +90,43 @@ function solution4(n,k){
     }
 
     result += (n-1)
+    console.log(result);
     return(result);
 }
 
-solution4(24,6);
+// solution4(24,6);
+
+// 곱하기 혹은 더하기
+function solution5(n){
+    let arr = n.split('').map(i => parseInt(i,10)); //문자열을 배열에 삽입
+    let result = 0;
+    for(var i = 0; i<arr.length;i++){
+        console.log(`arr: ${arr[i]}`);
+        console.log(`result: ${result}`);
+        if(arr[i] <= 1 || result <= 1){
+            result += arr[i];
+        } else {
+            result *= arr[i];
+        }
+    }
+    console.log(result);
+}
+
+// solution5('01984');
+
+// 모험가 길드
+function solution6(n,x){
+    let tttt = x.split(' ').map(Number).sort();
+    let result = 0;
+    let count = 0;
+    for(let i of tttt){
+        count += 1;
+        if(count >= i){
+            result += 1;
+            count = 0;
+        }
+    }
+    console.log(result);
+}
+
+solution6(5,'1 2 2 2 2');
