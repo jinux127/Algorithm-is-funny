@@ -38,4 +38,59 @@ function getCombination(arr, selectNumber){
     return result;
 }
 
-getCombination([1,2,3,4],3);
+// getCombination([1,2,3,4],3);
+
+function solution2(n, lost, reserve) {
+    const answer = new Array(n);
+    
+    answer.fill(1);
+    
+    reserve.map(r =>{answer[r-1]+=1});
+    lost.map(l => answer[l-1] -=1);
+
+
+    answer.map((a,i)=>{
+        if(a===0){
+            if(answer[i-1] === 2){
+                answer[i-1] -= 1;
+                answer[i] += 1;
+            } else if(answer[i+1] === 2){
+                answer[i+1] -= 1;
+                answer[i] += 1;
+            }
+        }
+    })    
+    console.log(answer);
+
+    return answer;
+}
+
+// solution2(	5, [2, 4], [1, 3, 5]);
+
+function solution3(n, lost, reserve) {
+    const answer = new Array(n);
+   
+    return answer;
+}
+
+
+// 1이 될때까지
+function solution4(n,k){
+    let target = 0;
+    let result = 0;
+    while(true){
+        target = (n / k) *k;
+        result += (n - target);
+        n = target;
+
+        if(n<k) break;
+
+        result += 1;
+        n /=k
+    }
+
+    result += (n-1)
+    return(result);
+}
+
+solution4(24,6);
