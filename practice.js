@@ -129,4 +129,86 @@ function solution6(n,x){
     console.log(result);
 }
 
-solution6(5,'1 2 2 2 2');
+// solution6(5,'1 2 2 2 2');
+
+// 상하좌우
+function solution7(N,plans){
+    let dx = [0, 0, -1, 1];
+    let dy = [-1, 1, 0, 0];
+    let move_types = ['L', 'R', 'U', 'D'];
+
+    let plan = plans.split(' ');
+    let x = 1, y = 1;
+    for (const iterator of plan) {
+        let nx = 0;
+        let ny = 0;
+        for (let index = 0; index < 4; index++) {
+            if (iterator == move_types[index]) {
+                nx = x + dx[index];
+                ny = y + dy[index];
+            }
+        }
+        if (nx< 1 || ny< 1 || nx > N || ny > N) continue;
+
+        x = nx;
+        y = ny;
+
+    }
+    console.log(`${x} ${y}`);
+}
+
+// solution7(5, 'R R R U D D');
+
+// 시각
+function solution8(h){
+    let count = 0;
+    for(let i =0; i <= h; i++){
+        for(let j=0; j< 60; j++){
+            for(let k=0; k<60; k++){
+                if((""+i+j+k).indexOf('3') != -1) count++;
+            }
+        }
+    }
+    console.log(count);
+}
+
+// solution8(5);
+
+// 왕실의 나이트
+function solution9(loc){
+    let move_types= [
+        [-2,-1],
+        [-2,1],
+        [2,-1],
+        [2,1],
+        [-1,-2],
+        [1,-2],
+        [-1,2],
+        [1,2]
+    ]
+    let count = 0;
+    let x = parseInt(loc.split('')[0].charCodeAt()-96);
+    let y = parseInt(loc.split('')[1]);
+    
+    for (const move of move_types) {
+        count++;
+        console.log(`x +move[0]: ${x +move[0]}`)
+        console.log(`y +move[1]: ${y +move[1]}`)
+        if(x + move[0] < 1 || y + move[1] < 1 || x + move[0] > 8 || y + move[1] > 8) count--;
+    }
+    console.log(count);
+}
+
+// solution9('a2');
+
+function solution10(str){
+    let num = str.split('').filter(n=> !isNaN(n));
+    let strArr = str.split('').filter(n=> isNaN(n)).sort().join('');
+    let temp = 0;
+    for (const iterator of num) {
+        temp += parseInt(iterator);
+    }
+    console.log(strArr + temp);
+}
+
+solution10('K1KA5CB7');
