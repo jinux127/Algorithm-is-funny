@@ -1,5 +1,3 @@
-ABCDE
-abcde
-01234
-FGHIJ
-fghij
+0 1 0 1
+1 1 1 0
+0 0 1 1
