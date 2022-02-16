@@ -211,4 +211,11 @@ function solution10(str){
     console.log(strArr + temp);
 }
 
-solution10('K1KA5CB7');
+// solution10('K1KA5CB7');
+
+//최대 공약수
+let getGCD = (num1, num2) => (num2 > 0 ? getGCD(num2, num1 % num2) : num1);
+let getLCM = (num1, num2) => num1 * num2 / getGCD(num1,num2);
+
+console.log(getGCD(24,15));
+console.log(getLCM(24,15));
