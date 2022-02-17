@@ -217,5 +217,80 @@ function solution10(str){
 let getGCD = (num1, num2) => (num2 > 0 ? getGCD(num2, num1 % num2) : num1);
 let getLCM = (num1, num2) => num1 * num2 / getGCD(num1,num2);
 
-console.log(getGCD(24,15));
-console.log(getLCM(24,15));
+// console.log(getGCD(24,15));
+// console.log(getLCM(24,15));
+
+const graph = {
+    A: ["B", "C"],
+    B: ["A", "D"],
+    C: ["A", "G", "H", "I"],
+    D: ["B", "E", "F"],
+    E: ["D"],
+    F: ["D"],
+    G: ["C"],
+    H: ["C"],
+    I: ["C", "J"],
+    J: ["I"]
+  };
+  const BFS = (graph, startNode) =>{
+      const visited = [];
+      let needVisit = [];
+
+      needVisit.push(startNode);
+
+      while(needVisit.length !== 0){
+          const node = needVisit.shift();
+          if(!visited.includes(node)){
+              visited.push(node);
+              needVisit = [...needVisit, ...graph[node]];
+          }
+      }
+
+      return visited;
+  }
+
+
+  function DFS(graph, startNode){
+    const visited = []; // 탐색한 노드
+    let needVisit = []; // 탐색해야하는 노드
+
+    needVisit.push(startNode); // 노드 탐색 시작
+
+    while(needVisit.length !== 0){ // 탐색할 노드가 없을 때 까지
+        const node = needVisit.shift(); // dfs => queue, shift() 를 사용
+        if(!visited.includes(node)){ // 해당 노드가 탐색된 적 없다면
+            visited.push(node); // 탐색한 노드에 삽입
+            needVisit = [...graph[node], ...needVisit]; // 탐색해야하는 노드에 해당노드의 자식들을 우선순위 앞으로 삽입
+        }
+    }
+
+    return visited; // 탐색한 순서대로 출력
+  }
+  
+  // 노드 연결 정보
+    const recursiveGraph = [
+        [],
+        [2, 3, 8],
+        [1, 7],
+        [1, 4, 5],
+        [3, 5],
+        [3, 4],
+        [7],
+        [2, 6, 8],
+        [1, 7]
+    ];
+
+  
+  const visited = new Array(graph.length).fill(false);
+
+  function recursiveDFS( graph, v, visited){
+        visited[v] = true;
+        console.log(v);
+        graph[v].forEach(i=>{
+            if(!visited[i]) recursiveDFS(graph, i, visited);
+        })
+        return v;
+    }
+
+  console.log(DFS(graph, "A"));
+  console.log(BFS(graph, "A"));
