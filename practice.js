@@ -281,7 +281,7 @@ const graph = {
     ];
 
   
-  const visited = new Array(graph.length).fill(false);
+  const visited = new Array(recursiveGraph.length).fill(false);
 
   function recursiveDFS( graph, v, visited){
         visited[v] = true;
