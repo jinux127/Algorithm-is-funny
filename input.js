@@ -3,8 +3,6 @@ const input = require('fs').readFileSync(filePath).toString().trim().split('\n')
 
 console.log(input);
 
-const M = Number(input[0].split(' ')[0]);
-
 const sol = (param) =>{
     
 }
