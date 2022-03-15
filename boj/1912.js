@@ -12,6 +12,7 @@ const sol = (n,arr) =>{
     for(let i=0; i<arr.length; i++){
         arr[i] < dp[i-1]+arr[i] ? dp[i] = dp[i-1] + arr[i] : dp[i] = arr[i];
     }
+    console.log(dp);
     console.log(Math.max(...dp));
 
 
