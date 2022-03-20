@@ -32,11 +32,10 @@ const sol = (N, graph, order_input) =>{
             }
         })
     }
+
     const bfs = (i)=>{
         let idx =0;
-
         queue.push(i);
-        visited[i] = true;
 
         while(queue.length){
             const node = queue.shift();
@@ -56,7 +55,8 @@ const sol = (N, graph, order_input) =>{
         return 1;
     }
 
-    console.log(bfs(1));
+    console.log(bfs(order_input[0]));
+
     
 }
 
