@@ -8,7 +8,7 @@ const result = [];
 
 const dfs = (cnt) =>{
     let str ="";
-    if(cnt === 3){
+    if(cnt === 2){
         for(let i=0; i<vector.length; i++){
             str += vector[i] + " ";
         }

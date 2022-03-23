@@ -7,7 +7,7 @@ const result = [];
 
 const dfs = (idx, cnt) =>{
     let str = "";
-    if(cnt ===3){
+    if(cnt ===2){
         for(let i=0; i<MAX; i++){
             if(visited[i] === true){
                 str += arr[i] + " ";
@@ -27,4 +27,4 @@ const dfs = (idx, cnt) =>{
 }
 
 dfs(0,0);
-console.log(result);
+console.log(result.join('\n'));
