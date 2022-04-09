@@ -1,26 +1,25 @@
-// 직사각형 네개의 합집합의 면적 구하기
-
+// 십자카드 문제
 const filePath = process.platform === "linux" ? "/dev/stdin" : "input.txt";
 const input = require('fs').readFileSync(filePath).toString().trim().split(/\n/);
+const arr = input[0].split(' ').map(Number);
+const sol = (arr) =>{
+    let MIN = parseInt(arr.join(''));
+    let numberOfClocks = [];
 
-const sol = (input) =>{
-    const graph = Array.from(Array(100), ()=>new Array(100).fill(0));
-    let result = 0;
-    while(input.length){
-        const [x1, y1, x2, y2] = input.shift().split(' ').map(Number);
-
-        for(let i=x1; i<x2;i++){
-            for(let j=y1; j<y2;j++){
-                if(graph[j][i] === 1) continue;
-
-                graph[j][i] = 1;
-                result++;
-            }
-        }
+    for(let i=1111; i<= 9999; i++){
+        if(((i%1000)%100)%10 === 0) continue;
+        if(Math.floor(((i%1000) % 100) / 10) === 0) continue;
+        if(Math.floor((i%1000)/100) === 0) continue;
+        
+        numberOfClocks.push(i);
     }
 
-    console.log(result);
+    for(let i=0; i<3; i++){
+        arr.push(arr.shift());
+        MIN = Math.min(MIN,parseInt(arr.join('')));
+    }
 
+    console.log(numberOfClocks.indexOf(MIN));
 }
 
-sol(input);
+sol(arr);
