@@ -3,23 +3,27 @@ const filePath = process.platform === "linux" ? "/dev/stdin" : "input.txt";
 const input = require('fs').readFileSync(filePath).toString().trim().split(/\n/);
 const arr = input[0].split(' ').map(Number);
 const sol = (arr) =>{
-    let MIN = parseInt(arr.join(''));
-    let numberOfClocks = [];
-
-    for(let i=1111; i<= 9999; i++){
-        if(((i%1000)%100)%10 === 0) continue;
-        if(Math.floor(((i%1000) % 100) / 10) === 0) continue;
-        if(Math.floor((i%1000)/100) === 0) continue;
-        
-        numberOfClocks.push(i);
+    let MIN = 0;
+    let cnt = 0;
+    const numberCross = (x) =>{
+        let temp = parseInt(x.join(''));
+        for(let i=0; i<3; i++){
+            x.push(x.shift());
+            temp = Math.min(temp,parseInt(x.join('')));
+        }
+        return temp;
     }
+    
+    MIN = numberCross(arr);
 
-    for(let i=0; i<3; i++){
-        arr.push(arr.shift());
-        MIN = Math.min(MIN,parseInt(arr.join('')));
+    for(let i=1111; i<= MIN; i++){
+        if(numberCross(String(i).split('')) === i ){
+            cnt++;
+        }
     }
-
-    console.log(numberOfClocks.indexOf(MIN));
+    
+    // console.log(MIN);
+    console.log(cnt);
 }
 
 sol(arr);
