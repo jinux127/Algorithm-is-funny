@@ -16,11 +16,10 @@ rl.on("close", function () {
     const [N, M] = input[0].split(" ").map(Number);
     const arr = [...Array(N + 1)].map((v, i) => i);
     const temp = [];
-    const result = [];
 
     const dfs = (cnt) => {
         if (cnt === M) {
-            result.push(temp.join(" "));
+            console.log(temp.join(" "));
             return;
         }
 
@@ -32,8 +31,6 @@ rl.on("close", function () {
     };
 
     dfs(0);
-
-    console.log(result.join("\n"));
 
     process.exit();
 });
