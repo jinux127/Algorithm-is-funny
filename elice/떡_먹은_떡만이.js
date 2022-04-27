@@ -6,22 +6,18 @@ const rl = readline.createInterface({
 });
 
 const sol = (arr) => {
-    const numArr = [];
-    const answer = new Array(arr.length).fill(1);
+    const numArr = arr.map((item) => item.split(' ').map(Number));
+    let target = 1;
 
-    arr.map((item, i) => {
-        numArr.push(item.split(' ').map(Number));
+    numArr.map((item) => {
+        item[0] === target
+            ? (target = item[1])
+            : item[1] === target
+            ? (target = item[0])
+            : null;
     });
 
-    for (let i = 0; i < numArr.length; i++) {
-        for (let j = 0; j < numArr.length; j++) {
-            numArr[i][0] < numArr[j][0] && numArr[i][1] < numArr[j][1]
-                ? (answer[i] += 1)
-                : null;
-        }
-    }
-
-    console.log(answer.join(' '));
+    console.log(target);
 };
 
 let input = [];
