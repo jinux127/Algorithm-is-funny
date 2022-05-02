@@ -6,21 +6,21 @@ const rl = readline.createInterface({
 });
 
 const sol = (str) => {
-    let [A, B, C] = str.split(' ').map(Number);
+    let [A, B, C] = str.split(' ').map(BigInt);
 
     const func1 = (a, b, c) => {
-        if (b === 0) return 1;
+        if (b === 0n) return 1n;
 
-        if (b % 2 === 0) {
-            const next = func1(a, b / 2, c);
+        if (b % 2n === 0n) {
+            const next = func1(a, b / 2n, c);
             return (next * next) % c;
         }
 
-        const next = func1(a, b / 2, c);
+        const next = func1(a, b / 2n, c);
         return (((next * next) % c) * (a % c)) % c;
     };
 
-    console.log(func1(A, B, C));
+    console.log(func1(A, B, C).toString());
 };
 
 let input = [];
