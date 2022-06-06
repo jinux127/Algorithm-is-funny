@@ -7,7 +7,7 @@ function solution(record) {
   record.map((item) => {
     answer.push(item.split(' '));
   });
-  console.log(answer);
+
   answer.map((item) => {
     if (item[0] !== 'Change') {
       arr.push([item[0], item[1]]);
@@ -16,12 +16,10 @@ function solution(record) {
       id[item[1]] = item[2];
     }
   });
-  console.log(arr);
-  console.log(id);
   answer = arr.map((item) => {
     return item[0] === 'Enter' ? `${id[item[1]]}님이 들어왔습니다.` : `${id[item[1]]}님이 나갔습니다.`;
   });
-  console.log(answer);
+
   return answer;
 }
 
