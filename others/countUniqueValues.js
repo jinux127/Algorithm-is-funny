@@ -1,3 +1,5 @@
+// 투 포인터
+
 function countUniqueValues(arr) {
   // add whatever parameters you deem necessary - good luck!
   if (arr.length === 0) return 0;
