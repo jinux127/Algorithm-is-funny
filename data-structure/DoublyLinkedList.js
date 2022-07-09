@@ -25,10 +25,33 @@ class DoublyLinkedList {
     this.length += 1;
     return this;
   }
+  pop() {
+    if (!this.head) return undefined;
+    let targetNode = this.tail;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = targetNode.prev;
+      this.tail.next = null;
+      targetNode.prev = null;
+    }
+
+    this.length -= 1;
+    return targetNode;
+  }
 }
 
 const DLL = new DoublyLinkedList();
 
-DLL.push('test');
-
+DLL.push(1);
+DLL.push(12);
+DLL.push(13);
+DLL.push(14);
+DLL.push(15);
+DLL.push(16);
+console.log(DLL.pop());
+console.log(DLL.pop());
+console.log(DLL.pop());
 console.log(DLL);
