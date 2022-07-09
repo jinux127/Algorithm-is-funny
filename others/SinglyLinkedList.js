@@ -13,6 +13,7 @@ class SinglyLinkedList {
   }
   push(val) {
     let newNode = new Node(val);
+
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -23,6 +24,7 @@ class SinglyLinkedList {
     this.legnth += 1;
     return this;
   }
+
   pop() {
     if (!this.head) return undefined;
 
@@ -40,6 +42,15 @@ class SinglyLinkedList {
       this.head = null;
       this.tail = null;
     }
+    return current;
+  }
+  shift() {
+    if (!this.head) return undefined;
+
+    let current = this.head;
+    this.head = current.next;
+    this.length -= 1;
+
     return current;
   }
 }
