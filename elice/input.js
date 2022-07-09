@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -6,14 +6,12 @@ const rl = readline.createInterface({
 });
 
 let input = [];
-let cnt = 0;
 
-rl.on("line", function (line) {
+rl.on('line', function (line) {
     input.push(line);
     rl.close();
-    // if (cnt === 2) rl.close();
 });
 
-rl.on("close", function () {
+rl.on('close', function () {
     process.exit();
 });

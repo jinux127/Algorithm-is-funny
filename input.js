@@ -1,8 +1,6 @@
-const filePath = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+const filePath = process.platform === 'linux' ? '/dev/stdin' : 'input.txt';
 const input = require('fs').readFileSync(filePath).toString().trim().split(/\n/);
 
-const sol = (param) =>{
-    
-}
+const sol = (param) => {};
 
 sol(param);
