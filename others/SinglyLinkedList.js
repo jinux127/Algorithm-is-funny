@@ -21,7 +21,8 @@ class SinglyLinkedList {
       this.tail.next = newNode;
       this.tail = newNode;
     }
-    this.legnth += 1;
+
+    this.length += 1;
     return this;
   }
 
@@ -65,4 +66,24 @@ class SinglyLinkedList {
     this.length += 1;
     return this;
   }
+  get(index) {
+    console.log(this.length);
+    if (index < 0 || index >= this.length) return null;
+
+    let cnt = 0;
+    let current = this.head;
+    while (cnt !== index) {
+      current = current.next;
+      cnt += 1;
+    }
+    return current;
+  }
 }
+
+const L = new SinglyLinkedList();
+
+L.push(0);
+L.push(1);
+L.push(2);
+
+console.log(L.get(1));
