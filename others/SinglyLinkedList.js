@@ -67,7 +67,6 @@ class SinglyLinkedList {
     return this;
   }
   get(index) {
-    console.log(this.length);
     if (index < 0 || index >= this.length) return null;
 
     let cnt = 0;
@@ -78,6 +77,15 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  set(index, value) {
+    let target = this.get(index);
+    if (target) {
+      target.val = value;
+      return true;
+    }
+    return false;
+  }
 }
 
 const L = new SinglyLinkedList();
@@ -87,3 +95,5 @@ L.push(1);
 L.push(2);
 
 console.log(L.get(1));
+
+console.log(L.set(1, 4));
