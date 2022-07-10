@@ -90,6 +90,14 @@ class DoublyLinkedList {
     }
     return value;
   }
+  set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode !== null) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
 }
 
 const DLL = new DoublyLinkedList();
