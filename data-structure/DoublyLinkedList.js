@@ -140,6 +140,7 @@ DLL.push(13);
 DLL.push(14);
 DLL.push(15);
 DLL.push(16);
+
 console.log(DLL.pop());
 console.log(DLL.pop());
 console.log(DLL.pop());
