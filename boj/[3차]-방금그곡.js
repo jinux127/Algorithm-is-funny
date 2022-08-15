@@ -9,7 +9,10 @@ function solution(m, musicinfos) {
   const map = new Map();
   for (const musicInfo of musicinfos) {
     const [start, finish, title, _score] = musicInfo.split(',');
-    const duration = Number(finish.slice(0, 2)) * 60 + Number(finish.slice(3, 5)) - (Number(start.slice(0, 2)) * 60 + Number(start.slice(3, 5)));
+    const duration =
+      Number(finish.slice(0, 2)) * 60 +
+      Number(finish.slice(3, 5)) -
+      (Number(start.slice(0, 2)) * 60 + Number(start.slice(3, 5)));
     const score = convertStr(_score);
 
     const playScore = score.repeat(Math.ceil(duration / score.length)).slice(0, duration);
