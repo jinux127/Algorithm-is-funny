@@ -37,11 +37,5 @@ function solution(orders, course) {
   // return 시 오름차순
   return result.sort();
 }
-// function solution(orders, course) {
-//   var answer = [];
-//   const menu = new Set(...orders.map((item) => item.split('')));
-
-//   return answer;
-// }
 
 console.log(solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]));
