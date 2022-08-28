@@ -1,15 +1,16 @@
-// 정렬된 값으로 이진탐색해야함.
+// 이분 탐색입니다. 해당 값이 어느 인덱스에 있을지를 탐색하여 결과를 반환합니다.
 const binarySearch = (arr, target) => {
   let left = 0;
   let right = arr.length - 1;
   let mid = Math.floor((left + right) / 2);
   while (left <= right) {
     if (arr[mid] === target) return mid;
+    if (arr[mid] < target) left = mid + 1;
+    else right = mid - 1;
 
-    arr[mid] > target ? (right = mid - 1) : (left = mid + 1);
     mid = Math.floor((left + right) / 2);
   }
-
+  // 기준이 되는 인덱스는, 여기서 나온 값보다 항상 1이 더 큽니다. 따라서 +1을 해주죠!
   return mid + 1;
 };
 
@@ -31,20 +32,21 @@ const getInfos = (info) => {
   return infos;
 };
 
-function solution(info, query) {
-  const query_table = [];
-  const answer = [];
-  const infos = getInfos(info);
+const getResult = (infos, query, score) => {
+  // 키들을 배열 형태로 갖고 옵시다.
+  const infosKey = Object.keys(infos);
+  // 여기서 이제 키들에 대해 쿼리 조건을 만족하는 것들을 필터링해서 배열로 반환하고 (filter)
+  // reduce로 전체 점수 배열의 길이값 - 이분 탐색 결과 인덱스 값을 해줍니다.
+  // 그러면 결국 값이 같거나 큰 애들의 수만큼 값이 나오겠죠? (정렬되어 있으니까요)
+  // 이를 누산해줍니다.
+  return infosKey
+    .filter((key) => query.every((v) => key.includes(v)))
+    .reduce((acc, key) => acc + infos[key].length - binarySearch(infos[key], score), 0);
+};
 
-  // info.map((item) => {
-  //   const aaa = item.split(' ');
-  //   const score = Number(aaa.pop());
-  //   const keys = aaa.join('');
-
-  //   infos[keys] ? infos[keys].push(score) : (infos[keys] = [score]);
-  // });
-
-  // Object.keys(infos).map((key) => infos[key].sort((a, b) => a - b));
+const solution = (info, query) => {
+  let answer = [];
+  const infos = getInfos(info); // solution
   query
     .map(
       (q) =>
@@ -54,27 +56,11 @@ function solution(info, query) {
     ) // 쿼리 조건들을 필터링해줄 거에요.
     .forEach((query) => {
       const score = query.pop();
-      const result = Object.keys(infos)
-        .filter((key) => query.every((v) => key.includes(v)))
-        .reduce((acc, key) => acc + infos[key].length - binarySearch(infos[key], score), 0);
+      const result = getResult(infos, query, score);
       answer.push(result); // getResult로 인해 누산된 결과값을, answer에 넣어줍시다.
     });
-
-  // query.map((items) => {
-  //   query_table.push(items.split(/and|\s|-/).filter((item) => item));
-  // });
-
-  // query_table.map((query) => {
-  //   const score = Number(query.pop());
-
-  //   const result = Object.keys(infos)
-  //     .filter((key) => query.every((v) => key.includes(v)))
-  //     .reduce((acc, key) => acc + infos[key].length - binarySearch(infos[key], score), 0);
-  //   answer.push(result);
-  // });
-
   return answer;
-}
+};
 
 console.log(
   solution(
