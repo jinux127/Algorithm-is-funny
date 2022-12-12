@@ -5,6 +5,32 @@
  * @returns
  */
 function solution(topping) {
+  const leftToppingType = new Set();
+  const toppingInfo = {};
+
+  let answer = 0;
+  let type_count = 0;
+
+  topping.forEach((toppingItem) => {
+    if (toppingInfo[toppingItem]) toppingInfo[toppingItem]++;
+    else {
+      toppingInfo[toppingItem] = 1;
+      type_count++;
+    }
+  });
+
+  topping.forEach((toppingItem) => {
+    leftToppingType.add(toppingItem);
+    toppingInfo[toppingItem]--;
+
+    if (!toppingInfo[toppingItem]) type_count--;
+    if (leftToppingType.size === type_count) answer++;
+  });
+
+  return answer;
+}
+
+function solution_success(topping) {
   const elementNumber = new Map();
   topping.forEach((v) => {
     if (elementNumber.has(v)) {
