@@ -4,6 +4,24 @@
  * @returns
  */
 function solution(s) {
+  for (let i = s.length; i >= 1; i--) {
+    for (let j = 0; j <= s.length - i; j++) {
+      const isPalin = isPalindrome(s.slice(j, i + j));
+      if (isPalin) return i;
+    }
+  }
+  return 1;
+}
+const isPalindrome = (s) => {
+  const half = Math.floor(s.length / 2);
+
+  for (let i = 0; i < half; i++) {
+    if (s[i] !== s[s.length - 1 - i]) return false;
+  }
+  return true;
+};
+
+function solution_fail(s) {
   var answer = 1;
   // 순회하는 문자열을 기준으로 앞뒤로 같은 경우를 탐색?
   // 예외) abba의 경우는?
