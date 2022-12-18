@@ -11,4 +11,6 @@ function solution(n, times) {
   for(let )
 }
 
+
+
 console.log(solution(6, [7, 10]));
