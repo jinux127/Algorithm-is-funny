@@ -1,4 +1,4 @@
-class Heap {
+class MaxHeap {
   constructor() {
     this.heap = [null];
   }
@@ -54,19 +54,3 @@ class Heap {
     return this.heap.length - 1;
   }
 }
-
-const heap = new Heap();
-
-heap.push(1);
-heap.push(3);
-heap.push(15);
-heap.push(5);
-heap.push(10);
-heap.push(11);
-heap.push(13);
-
-console.log(heap.getMax());
-
-heap.pop();
-
-console.log(heap.getMax());

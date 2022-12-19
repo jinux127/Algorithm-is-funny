@@ -1,4 +1,4 @@
-class Heap {
+class MinHeap {
   constructor() {
     this.heap = [null];
   }
