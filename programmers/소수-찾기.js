@@ -3,6 +3,7 @@ function solution(numbers) {
   const temp = [];
   const visited = new Array(numbers.length).fill(false);
   const result = [];
+
   const permutation = (cnt, targetNumber) => {
     let str = '';
     if (cnt === targetNumber) {
@@ -22,6 +23,7 @@ function solution(numbers) {
       visited[i] = false;
     }
   };
+
   for (let i = 1; i <= numbers.length; i++) {
     permutation(0, i);
   }

@@ -5,14 +5,17 @@
  * @returns
  */
 function solution(numbers, target) {
-  var answer = 0;
-  const dfs = (level, sum) => {
-    if (level === numbers.length) {
-      if (sum === target) answer++;
+  let answer = 0;
+
+  const dfs = (depth, sum) => {
+    if (depth === numbers.length) {
+      if (sum === target) answer += 1;
       return;
     }
-    dfs(level + 1, sum + numbers[level]);
-    dfs(level - 1, sum - numbers[level]);
+
+    dfs(depth + 1, sum + numbers[depth]);
+    dfs(depth + 1, sum - numbers[depth]);
   };
+  dfs(0, 0);
   return answer;
 }
