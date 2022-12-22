@@ -1,0 +1,1 @@
+sumArr[i - 1] + arr[i]
