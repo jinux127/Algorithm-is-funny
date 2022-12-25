@@ -58,13 +58,14 @@ Promise.all([firstPromise, secondPromise, thirdPromise.catch((err) => err)]).the
 /**
  * all과 달리 실패를 하더라도 then을 통해 실행된다. 
  * 배열의 형태로
+ * 만약 catch를 넣어주면 에러를 처리하므로 rejected상태가 아닌 fulfilled형태로 바뀌어 출력된다.
  * [
     { status: 'fulfilled', value: 'firstPromise success' },
     { status: 'fulfilled', value: 'secondPromise success' },
     { status: 'fulfilled', value: '거부' }
   ]
  */
-Promise.allSettled([firstPromise, secondPromise, thirdPromise.catch((err) => err)]).then((val) => {
+Promise.allSettled([firstPromise, secondPromise, thirdPromise]).then((val) => {
   console.log(val);
 });
 
