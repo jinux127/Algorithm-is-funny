@@ -23,6 +23,6 @@ const case1 = `7
 const inputCase = process.platform === 'linux' ? require('fs').readFileSync('/dev/stdin') : case1;
 const input = inputCase.toString().trim().split(/\n/);
 
-const sol = (param) => {};
+const sol = () => {};
 
-sol(param);
+sol();
