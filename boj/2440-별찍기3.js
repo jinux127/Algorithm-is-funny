@@ -8,14 +8,8 @@ const sol = () => {
   let answer = '';
   for (let i = 0; i < N; i++) {
     let str = '';
-    for (let j = i; j > 0; j--) {
-      str += ' ';
-    }
-    for (let j = 2 * (N - i) - 1; j > 0; j--) {
+    for (let j = N - i; j > 0; j--) {
       str += '*';
-    }
-    for (let j = i; j > 0; j--) {
-      str += ' ';
     }
     str += '\n';
     answer += str;
