@@ -16,9 +16,6 @@ const sol = () => {
   MInfo.forEach((broken) => {
     nums[broken] = false;
   });
-
-  for(let i=0; i<500000;)
-
 };
 
 console.log(sol());
