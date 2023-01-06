@@ -11,14 +11,7 @@ sol(param);
 /**
  * ver.2
  */
-const case1 = `7
-6
-1 2
-2 3
-1 5
-5 2
-5 6
-4 7`;
+const case1 = ``;
 
 const inputCase = process.platform === 'linux' ? require('fs').readFileSync('/dev/stdin') : case1;
 const input = inputCase.toString().trim().split(/\n/);
