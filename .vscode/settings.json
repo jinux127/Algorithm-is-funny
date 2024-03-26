@@ -1,6 +1,7 @@
 {
   "files.associations": {
-    "limits.h": "c"
+    "limits.h": "c",
+    "stack.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

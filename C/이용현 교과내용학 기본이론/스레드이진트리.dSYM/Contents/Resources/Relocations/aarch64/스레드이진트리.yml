@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jinwoo/Dev/projects/Javascript Practice/C/이용현 교과내용학 기본이론/스레드이진트리"
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _createThreadedNode, symObjAddr: 0x0, symBinAddr: 0x100003BAC, symSize: 0x58 }
+  - { offsetInCU: 0x92, offset: 0x92, size: 0x8, addend: 0x0, symName: _createThreadedNode, symObjAddr: 0x0, symBinAddr: 0x100003BAC, symSize: 0x58 }
+  - { offsetInCU: 0xC8, offset: 0xC8, size: 0x8, addend: 0x0, symName: _createThreadedInOrder, symObjAddr: 0x58, symBinAddr: 0x100003C04, symSize: 0xC4 }
+  - { offsetInCU: 0xFA, offset: 0xFA, size: 0x8, addend: 0x0, symName: _threadedInOrderTraversal, symObjAddr: 0x11C, symBinAddr: 0x100003CC8, symSize: 0x160 }
+  - { offsetInCU: 0x12C, offset: 0x12C, size: 0x8, addend: 0x0, symName: _freeThreadedTree, symObjAddr: 0x27C, symBinAddr: 0x100003E28, symSize: 0x54 }
+  - { offsetInCU: 0x150, offset: 0x150, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x2D0, symBinAddr: 0x100003E7C, symSize: 0xDC }
+...
